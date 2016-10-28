@@ -1,0 +1,45 @@
+{
+  "manifest_version": 2,
+
+//  "background":
+//    {
+//      "scripts": ["thirdParty/jquery-3.1.1.min.js", "background.js"]
+//    },
+
+  "name": "Like Plugin",
+  "description": "Like button",
+  "version": "0.1",
+  "omnibox": {
+    "keyword": "like"
+  },
+  "icons": {
+    "16": "icon.png"
+  },
+
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+
+
+  "content_scripts": [ {
+    "matches": [
+      "https://www.instagram.com/explore/tags/*",
+      "https://www.instagram.com/"
+    ],
+    "js": [
+      "thirdParty/jquery-3.1.1.min.js",
+      "thirdParty/underscore-min.js",
+      "content.js"
+      ]
+  }],
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "popup.html",
+    "default_title": "Click here!"
+  },
+  "permissions": [
+    "activeTab"
+    ]
+}
